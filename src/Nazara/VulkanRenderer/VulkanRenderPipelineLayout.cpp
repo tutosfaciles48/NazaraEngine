@@ -135,7 +135,7 @@ namespace Nz
 
 	void VulkanRenderPipelineLayout::Release(ShaderBinding& binding)
 	{
-		auto& vulkanBinding = static_cast<VulkanShaderBinding&>(binding);
+		auto& vulkanBinding = dynamic_cast<VulkanShaderBinding&>(binding);
 
 		std::size_t poolIndex = vulkanBinding.GetPoolIndex();
 		std::size_t bindingIndex = vulkanBinding.GetBindingIndex();

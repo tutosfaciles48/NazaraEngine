@@ -48,7 +48,7 @@ namespace Nz
 
 		if (m_shouldRecreateSwapchain || size != m_swapchainSize)
 		{
-			Vk::Surface& vulkanSurface = static_cast<VulkanSurface*>(m_owner.GetSurface())->GetSurface();
+			Vk::Surface& vulkanSurface = dynamic_cast<VulkanSurface*>(m_owner.GetSurface())->GetSurface();
 
 			OnRenderTargetSizeChange(this, size);
 
@@ -111,7 +111,7 @@ namespace Nz
 
 		const auto& physDeviceInfo = device->GetPhysicalDeviceInfo();
 
-		Vk::Surface& vulkanSurface = static_cast<VulkanSurface*>(surface)->GetSurface();
+		Vk::Surface& vulkanSurface = dynamic_cast<VulkanSurface*>(surface)->GetSurface();
 
 		const std::vector<Vk::Device::QueueFamilyInfo>& queueFamilyInfo = device->GetEnabledQueues();
 		UInt32 graphicsFamilyQueueIndex = UINT32_MAX;
